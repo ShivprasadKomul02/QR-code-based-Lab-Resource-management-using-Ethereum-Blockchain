@@ -1,0 +1,230 @@
+function registerDevice()
+    		{
+    		
+
+            var web3;
+            if(typeof web3 !== 'undefined')
+            {
+              web3=new Web3(web3.currentProvider);
+            }else
+            {
+              web3=new Web3(new Web3.providers.HttpProvider("https://localhost:7545"));
+            }
+
+        var labresource = web3.eth.contract([
+					{
+						"inputs": [],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "string",
+								"name": "id",
+								"type": "string"
+							}
+						],
+						"name": "RegisterDeviceEvent",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "string",
+								"name": "id",
+								"type": "string"
+							}
+						],
+						"name": "SetLocationEvent",
+						"type": "event"
+					},
+					{
+						"inputs": [
+							{
+								"internalType": "string",
+								"name": "",
+								"type": "string"
+							}
+						],
+						"name": "devices",
+						"outputs": [
+							{
+								"internalType": "string",
+								"name": "deviceid",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "brand",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "purchasedate",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "purchasereceiptno",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							}
+						],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [
+							{
+								"internalType": "string",
+								"name": "deviceid",
+								"type": "string"
+							}
+						],
+						"name": "getDeviceDetails",
+						"outputs": [
+							{
+								"internalType": "string",
+								"name": "_deviceid",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "_brand",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "_purchasedate",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "_price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "_purchasereceiptno",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "_description",
+								"type": "string"
+							}
+						],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [
+							{
+								"internalType": "string",
+								"name": "",
+								"type": "string"
+							}
+						],
+						"name": "inserted",
+						"outputs": [
+							{
+								"internalType": "bool",
+								"name": "",
+								"type": "bool"
+							}
+						],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [
+							{
+								"internalType": "string",
+								"name": "_deviceid",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "_brand",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "_purchasedate",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "_price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "_purchasereceiptno",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "_description",
+								"type": "string"
+							}
+						],
+						"name": "registerDevice",
+						"outputs": [
+							{
+								"internalType": "bool",
+								"name": "",
+								"type": "bool"
+							}
+						],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					}
+				]);
+
+        var instance=labresource.at("0x9bb50E3340E7C543B53046EbC653F739B2dD2260");
+
+        web3.eth.defaultAccount=web3.eth.accounts[0];
+
+        const deviceid = document.getElementById('deviceid').value;
+        const name = document.getElementById('devtype').value;
+        const brand = document.getElementById('dev_brand').value;
+        const purchasedate = document.getElementById('purchasedate').value;
+        const price = parseInt(document.getElementById('price').value);
+        const purchasereceiptno = parseInt(document.getElementById('slipno').value);
+        const description = document.getElementById('description').value;
+        
+        await instance.registerDevice(deviceid, name, brand, purchasedate, price,purchasereceiptno, description);
+
+        console.log(instance.getDeviceDetails(deviceid));
+
+    		}
