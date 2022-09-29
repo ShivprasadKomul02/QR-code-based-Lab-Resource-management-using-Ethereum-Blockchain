@@ -24,12 +24,12 @@ blockchain to create secure and immutable records. A record cannot change witho
 
 # User Interface
    
-![User Interface](images/1.jpg)
+![User Interface](images/1.JPG)
 
 
 # Blockc Diagram
    
-![Block structure](images/6.jpg)
+![Block structure](images/6.JPG)
 
 # Implementations in this project.
 
