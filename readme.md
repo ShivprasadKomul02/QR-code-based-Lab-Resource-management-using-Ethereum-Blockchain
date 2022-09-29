@@ -14,7 +14,7 @@ blockchain to create secure and immutable records. A record cannot change witho
 
 # Block Diagram
    
-![Block Diagram](images/2.jpg)
+![Block Diagram](images/2.JPG)
 
 
 # Work Flow
