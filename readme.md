@@ -44,11 +44,12 @@ Steps:
 - Browser open the url containing information of device.
 
 # Tech & Dependencies
-
+* HTML
+* Javascript
+* PHP
+* MySQL
 * Ethereum 
 * Truffle
 * OpenZeppelin 
-* Javascript
-* PHP
 * Metamask 
 * Solidity 
